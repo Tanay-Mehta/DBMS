@@ -12,6 +12,10 @@ int main(void){
     data_type_array[0] = "integer";
     data_type_array[1] = "string";
     // 
-    table *table1 = create_table("hi", 2, array, data_type_array);
-    printf("%s", table1->fields[0].data_type);
+    table *table1 = create_table("./hi", 2, array, data_type_array);
+    char * data[2];
+    data[1] = "1212";
+    data[2] = "mumbai";
+    insert_record(table1, data);
+    printf("%s", table1->records[0].data[2]);
 }

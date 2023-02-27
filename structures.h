@@ -33,4 +33,6 @@ typedef struct table {
 
 typedef char* str;
 table* create_table(char* table_name,int num_fields, char* field_names[], char* data_type[]);
+void insert_record(table* table1, char* data[]);
+int generate_id(void);
 #endif
