@@ -81,4 +81,6 @@ void delete_record(table* table1, int id){
     }
     fclose(fptr1);
     fclose(fptr2);
+    remove(table1->name);
+    rename("file2.csv", table1->name);
 }
