@@ -32,7 +32,11 @@ typedef struct table {
 }table;
 
 typedef char* str;
+int find(int id, char*filepath);
 table* create_table(char* table_name,int num_fields, char* field_names[], char* data_type[]);
 void insert_record(table* table1, char* data[]);
 int generate_id(void);
+void delete_record(table* table1, int id);
+
+
 #endif

@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 // ,int num_fields, char* field_names[], str data_type
 
 int generate_id(void){
@@ -54,5 +55,30 @@ void insert_record(table* table1, char** data){
      }
      // for(j=1;j<31;j++){
      //      fprintf(fp, "%s, ", data[j]);
-     }
+}
+
+void delete_record(table* table1, int id){
+     FILE *fptr1, *fptr2;
      
+     char file1[50];
+     char file2[50];
+     strcpy(file1, table1->name);
+     strcpy(file2, "file2.csv");
+     // char file2[] ="file2.txt";
+     char curr;
+     int del, line_number = 0;
+     del = id;
+     fptr1 = fopen(file1,"r");
+    fptr2 = fopen(file2, "w");
+    curr = getc(fptr1);
+    if(curr!=EOF) {line_number =1;}
+    while(1){
+      if(del != line_number)
+        putc(curr, fptr2);
+        curr = getc(fptr1);
+        if(curr =='\n') line_number++;
+        if(curr == EOF) break;
+    }
+    fclose(fptr1);
+    fclose(fptr2);
+}
