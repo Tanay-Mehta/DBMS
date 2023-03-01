@@ -67,7 +67,7 @@ void delete_record(table* table1, int id){
      // char file2[] ="file2.txt";
      char curr;
      int del, line_number = 0;
-     del = id;
+     del = id+1;
      fptr1 = fopen(file1,"r");
     fptr2 = fopen(file2, "w");
     curr = getc(fptr1);
