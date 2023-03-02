@@ -37,6 +37,7 @@ table* create_table(char* table_name,int num_fields, char* field_names[], char* 
 void insert_record(table* table1, char* data[]);
 int generate_id(void);
 void delete_record(table* table1, int id);
-
+char ** index_search(table*table1, int id);
+int* query_table(table*table1, char *filter_condition, char*field_name);
 
 #endif
