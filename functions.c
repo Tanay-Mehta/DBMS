@@ -84,3 +84,37 @@ void delete_record(table* table1, int id){
     remove(table1->name);
     rename("file2.csv", table1->name);
 }
+
+void update_record(table*table1, int id, char**data){
+     delete_record(table1, id);
+     insert_record(table1, data);
+}
+int array[30];
+int* query_table(table*table1, char *filter_condition, char*field_name){
+     int i, j, k, t;
+     
+     for(i=0;i<30;i++){
+          if(table1->fields[i].name == field_name){
+               break;
+          }
+     }
+     for(j=0;j<30;j++){
+          if(table1->records[j].data[i] == filter_condition){
+               for(k=0;k<30;k++){
+                    if(array[k] == 0){
+                         char* buffer;
+                         FILE* fptr = fopen(table1->name, "r");
+                         fgets(buffer, 1000, fptr);
+                         for(t=0; t<k; t++){
+                              fgets(buffer, 1000, fptr);
+                         }
+                         fgets(buffer, 2, fptr);
+                         int id = atoi(buffer);
+                         array[k] = id;
+                         break;
+                    }
+               }
+          }
+     }
+     return array;
+}
