@@ -53,8 +53,6 @@ void insert_record(table* table1, char** data){
      for(j=1;j<table1->num_fields+1;j++){
           fprintf(fp, "%s, ", data[j]);
      }
-     // for(j=1;j<31;j++){
-     //      fprintf(fp, "%s, ", data[j]);
 }
 
 void delete_record(table* table1, int id){
@@ -117,4 +115,8 @@ int* query_table(table*table1, char *filter_condition, char*field_name){
           }
      }
      return array;
+}
+
+char ** index_search(table*table1, int id){
+     return table1->records[id].data;
 }
